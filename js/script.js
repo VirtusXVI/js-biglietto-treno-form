@@ -1,24 +1,23 @@
 // VARIABLES
-let userKilometers = document.querySelector("userKm");
-let userAge = document.getElementById("userAge").value;
-
-
-// EXECUTING ACTIONS
-let userPrice = userKilometers * 0.21;
-if(userAge === "Over"){
-    userPrice = userPrice - (userPrice * 0.4);
-} else if(userAge < 18){
-    userPrice = userPrice - (userPrice * 0.2);
-}
-
 let generateButton = document.getElementById("ms_generate_button");
 let cancelButton = document.getElementById("ms_cancel_button");
-console.log(generateButton)
-console.log(cancelButton)
 
 generateButton.addEventListener( "click" ,
     function(){
-        console.log(userKilometers)
-        console.log(userAge)
-    }
-)
+        let userName = document.getElementById("userName").value;
+        let userKm = document.getElementById("userKm").value;
+        let userAge = document.getElementById("userAge").value;
+        document.getElementById('output').classList.remove('ms_output');
+        // EXECUTING ACTIONS
+        let userPrice = userKm * 0.21;
+        if(userAge === "Over"){
+            userPrice = userPrice - (userPrice * 0.4);
+        } else if(userAge === "Minorenne"){
+            userPrice = userPrice - (userPrice * 0.2);
+        }
+        document.getElementById("op_userName").innerHTML = `Nome: ${userName}`;
+        document.getElementById("op_userKm").innerHTML = `Chilometri: ${userKm}`;
+        document.getElementById("op_userAge").innerHTML = `Età: ${userAge}`;
+        document.getElementById("op_userPrice").innerHTML = `Prezzo: ${userPrice}`;
+        }
+);
