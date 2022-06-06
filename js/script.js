@@ -15,6 +15,7 @@ generateButton.addEventListener( "click" ,
         } else if(userAge === "Minorenne"){
             userPrice = userPrice - (userPrice * 0.2);
         }
+        userPrice = userPrice.toFixed(2)
         document.getElementById("op_userName").innerHTML = `Nome: ${userName}`;
         document.getElementById("op_userKm").innerHTML = `Chilometri: ${userKm}`;
         document.getElementById("op_userAge").innerHTML = `Età: ${userAge}`;
